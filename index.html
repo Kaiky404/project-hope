@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en-us">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
     <script>
-        // Verifica se o tema salvo no localStorage é "dark"
+        // Checks if the theme saved in localStorage is "dark"
         if (localStorage.getItem('theme') === 'dark') {
-            // Adiciona a classe 'dark-mode' no HTML imediatamente
+            // Adds the 'dark-mode' class to HTML immediately
             document.documentElement.classList.add('dark-mode');
-            // Marca o toggle como ativado (checkbox)
+            // Marks the toggle as checked (checkbox)
             window.onload = function() {
                 document.getElementById('alternador').checked = true;
             };
@@ -30,8 +30,8 @@
             <h3 class="logo">Hope<strong>Vet</strong></h3>
             <nav>
                 <a href="#">Home</a>
-                <a href="#func">Funcionalidades</a>
-                <a href="#cred">Créditos</a>
+                <a href="#func">Features</a>
+                <a href="#cred">Credits</a>
             </nav>
             <label class="toggle">
                 <input class="toggle-checkbox" type="checkbox" id="alternador" />
@@ -42,50 +42,50 @@
                     <p class="acess-login">Login</p>
                     <i class="ri-login-box-line"></i>
                 </a>
-                <p >Não possui cadastro?</p>
-                <a href="register.html" class="acess-cadastro">Clique aqui</a>
+                <p>Don't have an account?</p>
+                <a href="register.html" class="acess-cadastro">Click here</a>
             </div>
         </div>
         <div class="introduction">
-            <img src="img/pulgaPhoto.png" alt="Cachorro" />
+            <img src="img/pulgaPhoto.png" alt="Dog" />
             <div>
-                <h2>Conheça nosso sistema</h2>
-                <p>Transforme a sua clínica veterinária e maximize seu tempo!</p>
+                <h2>Get to know our system</h2>
+                <p>Transform your veterinary clinic and maximize your time!</p>
             </div>
         </div>
         <div class="funcs" id="func">
             <div>
-                <h2>Sobre as funcionalidades</h2>
-                <p>Descubra como podemos ajudar a cuidar da sua clinica!</p>
+                <h2>About the features</h2>
+                <p>Discover how we can help you take care of your clinic!</p>
             </div>
             <div class="funcs-list">
                 <div class="gear-item">
                     <i class="ri-settings-5-fill">1</i>
-                    <p class="appears"><strong>Cadastro</strong>: Gerencie informações de novos pacientes e seus registros. Adicione, edite ou exclua dados de forma rápida e segura.</p>
+                    <p class="appears"><strong>Registration</strong>: Manage new patient information and their records. Add, edit, or delete data quickly and securely.</p>
                 </div>
                 <div class="gear-item">
                     <i class="ri-settings-5-fill">2</i>
-                    <p class="appears"><strong>Pacientes</strong>: Acesse sua lista de pacientes e, visualize informações, dados físicos e informações de contato.</p>
+                    <p class="appears"><strong>Patients</strong>: Access your patient list and view information, physical data, and contact information.</p>
                 </div>
                 <div class="gear-item">
                     <i class="ri-settings-5-fill">3</i>
-                    <p class="appears"><strong>Consulta</strong>: Organize suas consultas,  registre data e horário da consulta, e salve ou baixe essa informações.</p>
+                    <p class="appears"><strong>Consultation</strong>: Organize your consultations, record appointment dates and times, and save or download this information.</p>
                 </div>
                 <div class="gear-item">
                     <i class="ri-settings-5-fill">4</i>
-                    <p class="appears"><strong>Agenda</strong>: Visualize compromissos, marque reuniões e gerencie sua rotina diária. Mantenha-se sempre salvos.</p>
+                    <p class="appears"><strong>Schedule</strong>: View appointments, schedule meetings, and manage your daily routine. Keep everything always saved.</p>
                 </div>
             </div>
         </div>
         <div class="credits" id="cred">
             <section class="creditos" id="creditos">
                 <h1 class="creditos-title">
-                    Criado pela equipe <strong class="creditos-strong">HOPE</strong>
+                    Created by the <strong class="creditos-strong">HOPE</strong> team
                 </h1>
-                
+
                 <div class="creditos-content">
                     <div>
-                        <h2 class="creditos-content-merito">Designer de Banner</h2>
+                        <h2 class="creditos-content-merito">Banner Designer</h2>
                         <h1 class="creditos-content-name" onclick="toggleVisibility(this)">
                             Caique B. Oliveira
                         </h1>
@@ -98,14 +98,14 @@
                             <img src="img/I_Github.svg" alt="GitHub" />
                         </a>
                         <a href="#" target="_blank" class="creditos-content-links-link">
-                            <img src="img/I_Mais.svg" alt="Mais" />
+                            <img src="img/I_Mais.svg" alt="More" />
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="creditos-content">
                     <div>
-                        <h2 class="creditos-content-merito">Coautora do Artigo e Modeladora de Banco de Dados</h2>
+                        <h2 class="creditos-content-merito">Co-author of the Article and Database Modeler</h2>
                         <h1 class="creditos-content-name" onclick="toggleVisibility(this)">
                             Eduarda O. A. Santos
                         </h1>
@@ -118,14 +118,14 @@
                             <img src="img/I_Github.svg" alt="GitHub" />
                         </a>
                         <a href="#" target="_blank" class="creditos-content-links-link">
-                            <img src="img/I_Mais.svg" alt="Mais" />
+                            <img src="img/I_Mais.svg" alt="More" />
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="creditos-content">
                     <div>
-                        <h2 class="creditos-content-merito">Gerente de Projeto</h2>
+                        <h2 class="creditos-content-merito">Project Manager</h2>
                         <h1 class="creditos-content-name" onclick="toggleVisibility(this)">
                             Gabriel O. Barbosa
                         </h1>
@@ -138,14 +138,14 @@
                             <img src="img/I_Github.svg" alt="GitHub" />
                         </a>
                         <a href="#" target="_blank" class="creditos-content-links-link">
-                            <img src="img/I_Mais.svg" alt="Mais" />
+                            <img src="img/I_Mais.svg" alt="More" />
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="creditos-content">
                     <div>
-                        <h2 class="creditos-content-merito">Analista de Artigos e Coordenador de Consultas</h2>
+                        <h2 class="creditos-content-merito">Article Analyst and Consultation Coordinator</h2>
                         <h1 class="creditos-content-name" onclick="toggleVisibility(this)">
                             Gustavo R. Passerini
                         </h1>
@@ -158,14 +158,14 @@
                             <img src="img/I_Github.svg" alt="GitHub" />
                         </a>
                         <a href="#" target="_blank" class="creditos-content-links-link">
-                            <img src="img/I_Mais.svg" alt="Mais" />
+                            <img src="img/I_Mais.svg" alt="More" />
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="creditos-content">
                     <div>
-                        <h2 class="creditos-content-merito">Desenvolvedor Front-End</h2>
+                        <h2 class="creditos-content-merito">Front-End Developer</h2>
                         <h1 class="creditos-content-name" onclick="toggleVisibility(this)">
                             Kaiky F. Silva
                         </h1>
@@ -178,7 +178,7 @@
                             <img src="img/I_Github.svg" alt="GitHub" />
                         </a>
                         <a href="#" class="creditos-content-links-link">
-                            <img src="img/I_Mais.svg" alt="Mais" />
+                            <img src="img/I_Mais.svg" alt="More" />
                         </a>
                     </div>
                 </div>

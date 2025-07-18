@@ -1,19 +1,19 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="en-us">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cadastro HopeVet</title>
+    <title>HopeVet Registration</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
     <link rel="stylesheet" href="login.css">
     <script>
-        // Verifica se o tema salvo no localStorage é "dark"
+        // Checks if the theme saved in localStorage is "dark"
         if (localStorage.getItem('theme') === 'dark') {
-            // Adiciona a classe 'dark-mode' no HTML imediatamente
+            // Adds the 'dark-mode' class to HTML immediately
             document.documentElement.classList.add('dark-mode');
-            // Marca o toggle como ativado (checkbox)
+            // Marks the toggle as checked (checkbox)
             window.onload = function() {
                 document.getElementById('alternador').checked = true;
             };
@@ -30,46 +30,46 @@
 <body>
     <main class="container">
         <section class="container-box">
-            
+
             <div class="container-box-header">
                 <div class="back-to">
                     <a href="../index.html"><i id="logout" class="ri-logout-circle-line"></i></a>
                 </div>
-                
+
                 <div class="toggle-div">
                     <label class="toggle">
                         <input class="toggle-checkbox" type="checkbox" id="alternador">
                         <div class="toggle-switch"></div>
-                    </label> 
+                    </label>
                 </div>
             </div>
-            
+
             <div class="apresentacao">
                 <h1 class="apresentacao-titulo">
                     <strong class="apresentacao-strong">Hope</strong>Vet
                 </h1>
-                <p class="apresentacao-desc">Simplificando a rotina da sua clínica veterinária</p>
+                <p class="apresentacao-desc">Simplifying your veterinary clinic's routine</p>
             </div>
 
-            <h4 class="insert-type">Cadastrar-se</h4>
-            
+            <h4 class="insert-type">Register</h4>
+
             <form id="registerForm">
-                <label class="camp-name" for="nome">Nome</label>
-                <input class="camp" id="nome" type="text" placeholder="Digite o nome da clínica veterinária">
+                <label class="camp-name" for="nome">Name</label>
+                <input class="camp" id="nome" type="text" placeholder="Enter the veterinary clinic name">
 
                 <label class="camp-name" for="email">Email</label>
-                <input class="camp" id="registerEmail" type="email" placeholder="Digite o endereço de email">
+                <input class="camp" id="registerEmail" type="email" placeholder="Enter the email address">
 
-                <label class="camp-name" for="telefone">Telefone</label>
-                <input class="camp" id="telefone" type="tel" placeholder="Digite o telefone">
+                <label class="camp-name" for="telefone">Phone</label>
+                <input class="camp" id="telefone" type="tel" placeholder="Enter the phone number">
 
-                <label class="camp-name" for="endereco">Endereço</label>
-                <input class="camp" id="endereco" type="text" placeholder="Digite seu endereço da clínica">
-                
-                <label class="camp-name" for="registerSenha">Senha</label>
-                <input class="camp" id="registerSenha" type="password" placeholder="Digite uma senha">
-                
-                <button id="registerButton" class="btn-entrar" type="button">Cadastrar</button>
+                <label class="camp-name" for="endereco">Address</label>
+                <input class="camp" id="endereco" type="text" placeholder="Enter the clinic address">
+
+                <label class="camp-name" for="registerSenha">Password</label>
+                <input class="camp" id="registerSenha" type="password" placeholder="Enter a password">
+
+                <button id="registerButton" class="btn-entrar" type="button">Register</button>
             </form>
         </section>
     </main>

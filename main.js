@@ -2,30 +2,30 @@ const toggleCheckbox = document.getElementById('alternador');
 const icons = document.querySelectorAll('.icon');
 const backs = document.querySelectorAll('.back-to-svg');
 
-// Função para ativar o modo escuro
-function ativarDarkMode() {
+// Function to activate dark mode
+function activateDarkMode() {
     document.documentElement.classList.add('dark-mode');
-    localStorage.setItem('theme', 'dark');  // Salva o estado do tema como 'dark'
-    applySvgColor('var(--txt-color-dark)', 'dark');  // Altera a cor dos SVGs para o modo escuro
+    localStorage.setItem('theme', 'dark'); // Saves the theme state as 'dark'
+    applySvgColor('var(--txt-color-dark)', 'dark'); // Changes SVG colors for dark mode
 }
 
-// Função para desativar o modo escuro
-function desativarDarkMode() {
+// Function to deactivate dark mode
+function deactivateDarkMode() {
     document.documentElement.classList.remove('dark-mode');
-    localStorage.setItem('theme', 'light');  // Salva o estado do tema como 'light'
-    applySvgColor('var(--txt-color)', 'light');  // Altera a cor dos SVGs para o modo claro
+    localStorage.setItem('theme', 'light'); // Saves the theme state as 'light'
+    applySvgColor('var(--txt-color)', 'light'); // Changes SVG colors for light mode
 }
 
-// Função para aplicar a cor nos SVGs
+// Function to apply color to SVGs
 function applySvgColor(color, mode) {
-    // Altera a cor para os SVGs com a classe .icon
+    // Changes color for SVGs with the .icon class
     icons.forEach(icon => {
         icon.querySelectorAll('path').forEach(path => {
-            path.setAttribute('fill', color);  // Aplica a cor no 'fill' de cada path
+            path.setAttribute('fill', color); // Applies color to the 'fill' of each path
         });
     });
-    
-    // Altera a cor para os SVGs com a classe .back-to-svg
+
+    // Changes color for SVGs with the .back-to-svg class
     backs.forEach(back => {
         back.querySelectorAll('path').forEach(path => {
             path.setAttribute('fill', mode === 'dark' ? 'var(--back-to-svg-dark)' : 'var(--back-to-svg-light)');
@@ -33,29 +33,29 @@ function applySvgColor(color, mode) {
     });
 }
 
-// Verifica o estado do tema ao carregar a página
+// Checks the theme state when loading the page
 document.addEventListener("DOMContentLoaded", () => {
     const savedTheme = localStorage.getItem("theme");
-    
+
     if (savedTheme === "dark") {
-        ativarDarkMode();  // Ativa o modo escuro se o tema estiver salvo como 'dark'
-        toggleCheckbox.checked = true;  // Marca o checkbox de acordo com o estado salvo
+        activateDarkMode(); // Activates dark mode if the theme is saved as 'dark'
+        toggleCheckbox.checked = true; // Checks the checkbox according to the saved state
     } else {
-        desativarDarkMode();  // Desativa o modo escuro caso o tema não seja 'dark'
-        toggleCheckbox.checked = false;  // Desmarca o checkbox
+        deactivateDarkMode(); // Deactivates dark mode if the theme is not 'dark'
+        toggleCheckbox.checked = false; // Unchecks the checkbox
     }
-    
-    // Evento de mudança do checkbox para alternar entre os modos
+
+    // Checkbox change event to switch between modes
     toggleCheckbox.addEventListener('change', () => {
         if (toggleCheckbox.checked) {
-            ativarDarkMode();  // Ativa o modo escuro
+            activateDarkMode(); // Activates dark mode
         } else {
-            desativarDarkMode();  // Desativa o modo escuro
+            deactivateDarkMode(); // Deactivates dark mode
         }
     });
 });
 
-// Chama a função para aplicar a cor do SVG ao carregar a página
+// Calls the function to apply SVG color when the page loads
 applySvgColor(
     document.documentElement.classList.contains('dark-mode') ? 'var(--txt-color-dark)' : 'var(--txt-color)',
     document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light'
@@ -63,23 +63,23 @@ applySvgColor(
 
 
 function toggleVisibility(element) {
-    // Encontra o contêiner pai `creditos-content` do elemento clicado
+    // Finds the parent container `creditos-content` of the clicked element
     const creditosContent = element.closest('.creditos-content');
-    
-    // Seleciona o `.creditos-content-merito` e todos os `.creditos-content-links-link` dentro do contêiner atual
+
+    // Selects the `.creditos-content-merito` and all `.creditos-content-links-link` within the current container
     const meritElement = creditosContent.querySelector('.creditos-content-merito');
     const linksElements = creditosContent.querySelectorAll('.creditos-content-links-link');
-    
-    // Verifica se o mérito já está visível para o item atual
+
+    // Checks if the merit is already visible for the current item
     const isVisible = meritElement.style.display === 'block';
-    
-    // Oculta todos os elementos `.creditos-content-merito` e `.creditos-content-links-link` em todas as seções
+
+    // Hides all `.creditos-content-merito` and `.creditos-content-links-link` elements in all sections
     document.querySelectorAll('.creditos-content-merito').forEach(el => el.style.display = 'none');
     document.querySelectorAll('.creditos-content-links-link').forEach(el => el.style.display = 'none');
-    
-    // Se o elemento clicado já estava visível, não faz nada além de ocultar (alternância no clique)
+
+    // If the clicked element was already visible, do nothing but hide (toggle on click)
     if (!isVisible) {
-        // Caso contrário, exibe o mérito e links para o item clicado
+        // Otherwise, displays the merit and links for the clicked item
         meritElement.style.display = 'block';
         linksElements.forEach(link => link.style.display = 'inline-block');
     }
@@ -98,16 +98,14 @@ gearItems.forEach(gearItem => {
     });
 });
 
-// Função para que o redirect da nav seja suave
-
+// Function for smooth navigation redirect
 function scrollToElement(elementId) {
     const element = document.getElementById(elementId);
-    
+
     if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
-    };
-    
-};
+    }
+}
 
 const func = document.querySelector('a[href="#func"]');
 const cred = document.querySelector('a[href="#cred"]');

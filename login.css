@@ -1,24 +1,25 @@
 :root {
-    /* ===== Cores Imutáveis ===== */
+    /* ===== Immutable Colors ===== */
     --system-color: #00675e;
     --func-hover: #00675e22;
     --func-active: #00433f3d;
 
-    /* ===== Cores Light ===== */
+    /* ===== Light Colors ===== */
     --input-color: #e7e7e7;
     --grey-color: #d2d2d2;
     --bg-color: #F5F5F5;
     --txt-color: #333333;
 
-    /* ===== Cores Dark ===== */
+    /* ===== Dark Colors ===== */
     --input-color-dark: #c5c5c5;
     --grey-color-dark: #c6c6c6;
     --bg-color-dark: #121212;
     --txt-color-dark: #E0E0E0;
 
-    /* ===== Tipografia ===== */
+    /* ===== Typography ===== */
     --system-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .dark-mode {
     --grey-color: var(--grey-color-dark);
     --input-color: var(--input-color-dark);
@@ -33,6 +34,7 @@
     box-sizing: border-box;
     text-decoration: none;
 }
+
 /* desktop */
 body {
     margin: 0;
@@ -61,21 +63,21 @@ body {
     margin: 3rem 0;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente dentro do container */
-    align-items: center; /* Centraliza o conteúdo verticalmente dentro do container */
-    position: absolute; /* Permite posicionar o container em relação à tela */
-    top: 50%; /* Posiciona o topo do container no centro da tela */
-    left: 50%; /* Posiciona a esquerda do container no centro da tela */
-    transform: translate(-50%, -50%); /* Ajusta o container para centralizar exatamente no centro */
+    justify-content: center; /* Centers content horizontally within the container */
+    align-items: center; /* Centers content vertically within the container */
+    position: absolute; /* Allows positioning the container relative to the screen */
+    top: 50%; /* Positions the top of the container at the center of the screen */
+    left: 50%; /* Positions the left of the container at the center of the screen */
+    transform: translate(-50%, -50%); /* Adjusts the container to be exactly centered */
     width: auto;
 }
 
 .container-box-header {
     display: flex;
-    justify-content: space-between; /* Distribui os elementos com espaço igual entre eles */
-    align-items: center; /* Alinha os elementos verticalmente ao centro */
-    width: 100%; /* Garante que o contêiner ocupe toda a largura disponível */
-    padding: 10px; /* Adiciona um pequeno espaçamento interno */
+    justify-content: space-between; /* Distributes elements with equal space between them */
+    align-items: center; /* Aligns elements vertically to the center */
+    width: 100%; /* Ensures the container takes up the full available width */
+    padding: 10px; /* Adds a small internal spacing */
 }
 
 .toggle-div {
@@ -87,14 +89,14 @@ body {
     align-self: center;
     cursor: pointer;
     display: inline-block;
-}   
+}
 
 .toggle-switch {
     display: inline-block;
     background: var(--system-color);
-    border-radius: 1rem; /* bordas mais arredondadas */
-    width: 4rem; /* largura reduzida */
-    height: 2rem; /* altura reduzida */
+    border-radius: 1rem; /* more rounded borders */
+    width: 4rem; /* reduced width */
+    height: 2rem; /* reduced height */
     position: relative;
     vertical-align: middle;
     transition: background 0.25s;
@@ -105,8 +107,8 @@ body {
     display: block;
     background: var(--bg-color);
     border-radius: 50%;
-    width: 1.6rem; /* largura reduzida do círculo */
-    height: 1.6rem; /* altura reduzida do círculo */
+    width: 1.6rem; /* reduced circle width */
+    height: 1.6rem; /* reduced circle height */
     position: absolute;
     top: 0.2rem;
     left: 0.2rem;
@@ -118,18 +120,19 @@ body {
 }
 
 .toggle-checkbox:checked + .toggle-switch:before {
-    left: 2.2rem; /* ajustado conforme a nova largura */
+    left: 2.2rem; /* adjusted according to the new width */
 }
 
 .toggle-checkbox {
     position: absolute;
     visibility: hidden;
 }
-/* fim - toggle */
+/* end - toggle */
 
 .apresentacao {
     margin-bottom: 1rem;
 }
+
 .apresentacao-titulo {
     text-align: center;
     font-weight: 700;
@@ -137,10 +140,12 @@ body {
     margin-bottom: 0.5rem;
     color: var(--txt-color);
 }
+
 .apresentacao-strong {
     color: var(--system-color);
     font-weight: 600;
 }
+
 .apresentacao-desc {
     text-align: center;
     color: var(--txt-color);
@@ -170,7 +175,7 @@ body {
 
 input::placeholder {
     padding: 0 10px;
-  }
+}
 
 .camp:hover {
     border-color: var(--bg-color);
@@ -196,13 +201,14 @@ input::placeholder {
     border-width: 1px;
     transition: transform 0.2s ease-in-out;
 }
+
 .btn-entrar:hover {
     background-color: var(--bg-color);
     transform: scale(1.01);
 }
 
 
-/* PARTE DE REGISTER */
+/* REGISTER PART */
 
 .insert-type {
     margin-right: auto;
