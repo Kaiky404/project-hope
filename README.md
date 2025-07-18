@@ -5,11 +5,11 @@ This is an academic project developed during my college years at FAM, in Brazil.
 
 ## ⚙️Technologies used
 - HTML
-└─ For the structure and organization of the various screens
+-- For the structure and organization of the various screens
 - CSS
-└─ For visual standards
+-- For visual standards
 - Java Script
-└─ For visual effects and pratical functions
+-- For visual effects and pratical functions
 
 ---
 
