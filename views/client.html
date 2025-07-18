@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HopeVet</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+        <link rel="stylesheet" href="/css/client.css">
+        <script src="/js/client.js" defer></script>
+        <script src="../../main.js" defer></script>
+        <script>
+                // Checks if the theme saved in localStorage is "dark"
+                if (localStorage.getItem('theme') === 'dark') {
+                        // Adds the 'dark-mode' class to HTML immediately
+                        document.documentElement.classList.add('dark-mode');
+                        // Marks the toggle as checked (checkbox)
+                        window.onload = function() {
+                                document.getElementById('alternador').checked = true; // 'alternador' can be renamed to 'themeToggle' in JS
+                        };
+                } else {
+                        document.documentElement.classList.remove('dark-mode');
+                        window.onload = function() {
+                                document.getElementById('alternador').checked = false; // 'alternador' can be renamed to 'themeToggle' in JS
+                        }
+                }
+        </script>
+</head>
+
+<body>
+        <div class="container">
+                <div class="logo">
+                        <h3>Hope<strong>Vet</strong></h3>
+                </div>
+                <div class="funcs">
+                        <p>Client</p>
+                        <label class="toggle">
+                                <input class="toggle-checkbox" type="checkbox" id="alternador" /> 
+                                <div class="toggle-switch"></div>
+                        </label>
+                        <div class="back-to">
+                                <a href="../index.html"><i id="logout" class="ri-logout-circle-line"></i></a>
+                        </div>
+                </div>
+                <div class="sidebar">
+                        <a id="sidebar-item" href="../overview.html"><i class="ri-home-2-fill"></i><p>Overview</p></a>
+                        <a id="sidebar-item" href="../patients.html" class="active"><i class="ri-team-fill"></i><p>Patients</p></a>
+                        <a id="sidebar-item" href="../schedule.html"><i class="ri-calendar-fill"></i><p>Schedule</p></a>
+                        <a id="sidebar-item" href="../settings.html"><i class="ri-settings-4-fill"></i><p>Settings</p></a>
+                </div>
+                <div class="content">
+                        <div>
+                                <a href="#">
+                                        <div class="clientes" id="lista-cliente"></div> 
+                                </a>
+                        </div>
+                </div>
+        </div>
+        
+</body>
+</html>

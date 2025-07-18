@@ -1,65 +1,65 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HopeVet</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
-    <link rel="stylesheet" href="../stylesistemas/sistema.css">
-    <script src="../script.js" defer></script>
-    <script>
-        // Verifica se o tema salvo no localStorage é "dark"
-        if (localStorage.getItem('theme') === 'dark') {
-            // Adiciona a classe 'dark-mode' no HTML imediatamente
-            document.documentElement.classList.add('dark-mode');
-            // Marca o toggle como ativado (checkbox)
-            window.onload = function() {
-                document.getElementById('alternador').checked = true;
-            };
-        } else {
-            document.documentElement.classList.remove('dark-mode');
-            window.onload = function() {
-                document.getElementById('alternador').checked = false;
-            }
-        }
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HopeVet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+        <link rel="stylesheet" href="/css/system.css">
+        <script src="/main.js" defer></script>
+    <script>
+        // Checks if the theme saved in localStorage is "dark"
+        if (localStorage.getItem('theme') === 'dark') {
+            // Adds the 'dark-mode' class to HTML immediately
+            document.documentElement.classList.add('dark-mode');
+            // Marks the toggle as checked (checkbox)
+            window.onload = function() {
+                document.getElementById('alternador').checked = true; // 'alternador' can be renamed to 'themeToggle' in JS
+            };
+        } else {
+            document.documentElement.classList.remove('dark-mode');
+            window.onload = function() {
+                document.getElementById('alternador').checked = false; // 'alternador' can be renamed to 'themeToggle' in JS
+            }
+        }
+    </script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="logo">
-            <h3>Hope<strong>Vet</strong></h3>
-        </div>
-        <div class="funcs">
-            <p>Visão Geral</p>
-            <label class="toggle">
-                <input class="toggle-checkbox" type="checkbox" id="alternador" />
-                <div class="toggle-switch"></div>
-            </label>
-            <div class="back-to">
-                <a href="../index.html"><i id="logout" class="ri-logout-circle-line"></i></a>
-            </div>
-        </div>
-        <div class="sidebar">
-            <a id="sidebar-item" href="visãogeral.html"><i class="ri-home-2-fill"></i><p>Visão Geral</p></a>
-            <a id="sidebar-item" href="#"  class="active"><i class="ri-team-fill"></i><p>Pacientes</p></a>
-            <a id="sidebar-item" href="agenda.html"><i class="ri-calendar-fill"></i><p>Agenda</p></a>
-            <a id="sidebar-item" href="ajustes.html"><i class="ri-settings-4-fill"></i><p>Ajustes</p></a>
-        </div>
-        <div class="content">
-            <a class="card" href="/sistemas/in-sistemas/cadastro.html">
-                <i class="ri-user-add-fill"></i>
-                <p class="text">Cadastro</p>
-            </a>
-            <a class="card" href="in-sistemas/cliente.html">
-                <i class="ri-parent-fill"></i>
-                <p class="text">Clientes</p>
-            </a>
-            <a class="card" href="in-sistemas/consulta.html">
-                <i class="ri-survey-fill"></i>
-                <p class="text">Consultas</p>
-            </a>
-        </div>
-    </div>
+    <div class="container">
+        <div class="logo">
+            <h3>Hope<strong>Vet</strong></h3>
+        </div>
+        <div class="funcs">
+                        <p>Overview</p>
+            <label class="toggle">
+                <input class="toggle-checkbox" type="checkbox" id="alternador" />
+                <div class="toggle-switch"></div>
+            </label>
+            <div class="back-to">
+                <a href="../index.html"><i id="logout" class="ri-logout-circle-line"></i></a>
+            </div>
+        </div>
+        <div class="sidebar">
+                        <a id="sidebar-item" href="/views/overview.html"><i class="ri-home-2-fill"></i><p>Overview</p></a>
+                        <a id="sidebar-item" href="/views/patients.html"  class="active"><i class="ri-team-fill"></i><p>Patients</p></a>
+                        <a id="sidebar-item" href="/views/schedule.html"><i class="ri-calendar-fill"></i><p>Schedule</p></a>
+                        <a id="sidebar-item" href="/views/settings.html"><i class="ri-settings-4-fill"></i><p>Settings</p></a>
+        </div>
+        <div class="content">
+                        <a class="card" href="/views/registration.html">
+                <i class="ri-user-add-fill"></i>
+                <p class="text">Registration</p>
+            </a>
+                        <a class="card" href="/views/clients.html">
+                <i class="ri-parent-fill"></i>
+                <p class="text">Clients</p>
+            </a>
+                        <a class="card" href="/views/consultations.html">
+                <i class="ri-survey-fill"></i>
+                <p class="text">Consultations</p>
+            </a>
+        </div>
+    </div>
 </body>
 </html>

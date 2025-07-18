@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HopeVet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+        <link rel="stylesheet" href="/css/registration.css">
+        <script src="/js/registration.js" defer></script>
+        <script src="/main.js" defer></script>
+    <script>
+        // Checks if the theme saved in localStorage is "dark"
+        if (localStorage.getItem('theme') === 'dark') {
+            // Adds the 'dark-mode' class to HTML immediately
+            document.documentElement.classList.add('dark-mode');
+            // Marks the toggle as checked (checkbox)
+            window.onload = function() {
+                document.getElementById('alternador').checked = true; // 'alternador' can be renamed to 'themeToggle' in JS
+            };
+        } else {
+            document.documentElement.classList.remove('dark-mode');
+            window.onload = function() {
+                document.getElementById('alternador').checked = false; // 'alternador' can be renamed to 'themeToggle' in JS
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <h3>Hope<strong>Vet</strong></h3>
+        </div>
+        <div class="funcs">
+                        <p>Registration</p>
+            <label class="toggle">
+                <input class="toggle-checkbox" type="checkbox" id="alternador" />
+                <div class="toggle-switch"></div>
+            </label>
+            <div class="back-to">
+                <a href="../index.html"><i id="logout" class="ri-logout-circle-line"></i></a>
+            </div>
+        </div>
+        <div class="sidebar">
+                        <a id="sidebar-item" href="/views/overview.html"><i class="ri-home-2-fill"></i><p>Overview</p></a>
+                        <a id="sidebar-item" href="/views/patients.html" class="active"><i class="ri-team-fill"></i><p>Patients</p></a>
+                        <a id="sidebar-item" href="/views/schedule.html"><i class="ri-calendar-fill"></i><p>Schedule</p></a>
+                        <a id="sidebar-item" href="/views/settings.html"><i class="ri-settings-4-fill"></i><p>Settings</p></a>
+        </div>
+        <div class="content">
+            <div class="content-container">
+                <form id="meuFormulario">                     <h2 class="content-container-title">Animal Data</h2>
+                    <div class="separadora">                         <div class="separadora-son">                                                         <div class="imagem-container">                                 <div class="imagem-label">                                     <label for="imagem-input"><p class="imagem-label-text">Select Image</p></label>                                 </div>
+                                <div class="imagem-preview">                                     <input type="file" id="imagem-input" accept="image/*" style="display: none;">                                     <img id="imagem-preview-img" src="" alt="Image Preview">                                 </div>
+                            </div>
+                        </div>
+                        <div class="separadora-son2">                             <div class="row">
+                                                                <div class="campo paciente">                                     <label class="label" for="paciente">Patient</label>                                     <input class="input" type="text" id="paciente" placeholder="Enter patient name" required>
+                                </div>
+                                                                <div class="campo especie" id="especie-container">                                     <label class="label" for="especie">Species</label>                                     <select class="select" id="especie" required>
+                                        <option value="Not Informed">#</option>
+                                        <option value="cat">Cat</option>
+                                        <option value="dog">Dog</option>
+                                    </select>
+                                </div>
+                                                                <div class="campo microchip">                                     <label for="microchip">Microchip</label>
+                                    <input class="input" type="text" id="microchip" placeholder="ex: 123456789123456">
+                                </div>
+                                
+                                                                <div class="campo raca">                                     <label class="label" for="raca">Breed</label>                                     <input class="input" type="text" id="raca" placeholder="Enter patient's breed" required>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                                                <div class="campo idade">                                     <label class="label" for="idade">Age</label>                                     <input class="input" type="number" id="idade" required>
+                                </div>
+                                                                <div class="campo porte" id="porte-container">                                     <label class="label" for="porte">Size</label>                                     <select class="select" id="porte" required>
+                                        <option value="Not Informed">#</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="small">Small</option>
+                                        <option value="large">Large</option>
+                                    </select>
+                                </div>
+                                                                <div class="campo cor">                                     <label class="label" for="cor">Coat Color</label>                                     <input class="input" type="text" id="pelagem">                                 </div>
+                                                                <div class="campo data">                                     <label class="label" for="data">Date of Birth</label>                                     <input class="input" type="date" id="data">
+                                </div>
+                            </div>
+                            <div class="separadora-son2-extra">                                                                 <div class="campo sexo" id="sexo">                                     <label class="label">Gender</label>
+                                    <div class="radio-group">
+                                        <label><input class="input"type="radio" name="sexo" value="macho" required> Male</label>
+                                        <label><input class="input" type="radio" name="sexo" value="femea"> Female</label>
+                                    </div>
+                                </div>
+                                                                <div class="campo vacina" id="vacina">                                     <label class="label">Vaccination status</label>
+                                    <div class="radio-group">
+                                        <label><input class="input"type="radio" name="vacina" value="Ok" required> Ok</label>
+                                        <label><input class="input" type="radio" name="vacina" value="Não Ok"> Not Ok</label>
+                                    </div>
+                                </div>
+                                                                <div class="campo predisposicao">                                     <label class="label">Disease Predisposition</label>
+                                    <div class="radio-group">
+                                        <label><input type="radio" id="predisposicao-sim" name="predisposicao" value="sim"> Yes (specify)</label>
+                                        <label><input type="radio" id="predisposicao-nao" name="predisposicao" value="nao"> No</label>
+                                        <label><input type="radio" id="predisposicao-desconhecido" name="predisposicao" value="desconhecido"> Unknown</label>
+                                    </div>
+                                    <textarea id="doenca" class="textarea-condicional" placeholder="Specify the disease here (this text field opens if 'yes' is selected)"></textarea>                                 </div>
+                                                                <div class="campo cuidados">                                     <label class="label">Special Care Needs</label>
+                                    <div class="radio-group">
+                                        <label><input type="radio" id="cuidados-sim" name="cuidados" value="sim"> Yes (specify)</label>
+                                        <label><input type="radio" id="cuidados-nao" name="cuidados" value="nao"> No</label>
+                                        <label><input type="radio" id="cuidados-desconhecido" name="cuidados" value="desconhecido"> Unknown</label>
+                                    </div>
+                                    <textarea id="cuidado" class="textarea-condicional" placeholder="Specify the care here (this text field opens if 'yes' is selected)"></textarea>                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            
+            <div class="content-container">
+                <form id="meuFormulario2">                     <h2 class="content-container-title">Tutor Data</h2>
+                    <div class="row">
+                                                <div class="campo tutor">                             <label class="label" for="tutor">Tutor</label>                             <input class="input" type="text" id="tutor" placeholder="Enter tutor's name" required>
+                        </div>
+                                                <div class="campo email">                             <label class="label" for="email">E-mail</label>
+                            <input class="input" type="email" id="email" placeholder="Enter tutor's email" required>
+                        </div>
+                                                <div class="campo telefone">                             <label class="label" for="telefone">Phone</label>                             <input class="input" type="number" id="telefone" required>
+                        </div>
+                                                <div class="campo endereco">                             <label class="label" for="endereco">Address</label>                             <input class="input" type="text" id="endereco" placeholder="Enter tutor's address" required>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+            
+                        <button class="button-item" id="adicionar-cadastro" type="button">Register</button>         </div>
+    </div>
+</body>
+</html>
