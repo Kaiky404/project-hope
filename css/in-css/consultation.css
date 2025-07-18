@@ -1,18 +1,18 @@
 :root {
-    /* ===== Cores Imutáveis ===== */
+    /* ===== Immutable Colors ===== */
     --system-color: #00675e;
     --func-hover: #00675e22;
     --func-active: #00433f3d;
 
-    /* ===== Cores Light ===== */
+    /* ===== Light Colors ===== */
     --input-color: #e7e7e7;
     --input-border: #ccc;
     --grey-color: #b2b2b2;
     --bg-color: #F5F5F5;
-    --bg-color-less: #d9d9d94f; 
+    --bg-color-less: #d9d9d94f;
     --txt-color: #333333;
 
-    /* ===== Cores Dark ===== */
+    /* ===== Dark Colors ===== */
     --input-color-dark: #c5c5c5;
     --input-border-dark: #545454;
     --grey-color-dark: #8a8a8a;
@@ -20,9 +20,10 @@
     --bg-color-less-dark: #22222248;
     --txt-color-dark: #E0E0E0;
 
-    /* ===== Tipografia ===== */
+    /* ===== Typography ===== */
     --system-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .dark-mode {
     --grey-color: var(--grey-color-dark);
     --input-color: var(--input-color-dark);
@@ -88,7 +89,7 @@ strong {
     font-family: var(--system-font);
 }
 
-/* ===== Funcionalidades ===== */
+/* ===== Functionalities ===== */
 .funcs {
     grid-area: funcs;
     display: grid;
@@ -111,52 +112,60 @@ strong {
     grid-column: 5;
 }
 
-/* Modo escuro quando o checkbox está marcado */
+/* Dark mode when the checkbox is marked */
 .toggle-checkbox:checked ~ #navegationRedirect {
-    background-color: var(--bg-color-dark); /* Cor de fundo em modo escuro */
-    color: var(--bg-color-dark); /* Cor do texto em modo escuro */
+    background-color: var(--bg-color-dark); /* Background color in dark mode */
+    color: var(--bg-color-dark); /* Text color in dark mode */
 }
+
 .toggle-checkbox:checked ~ #navegationRedirect .navegation-redirect-link {
-    color: var(--bg-color-dark); /* Cor dos links em modo escuro */
+    color: var(--bg-color-dark); /* Link color in dark mode */
 }
+
 /* toggle */
 .toggle {
     align-self: center;
     cursor: pointer;
     display: inline-block;
 }
+
 .toggle-switch {
     display: inline-block;
     background: var(--system-color);
-    border-radius: 1rem; /* bordas mais arredondadas */
-    width: 4rem; /* largura reduzida */
-    height: 2rem; /* altura reduzida */
+    border-radius: 1rem; /* more rounded borders */
+    width: 4rem; /* reduced width */
+    height: 2rem; /* reduced height */
     position: relative;
     vertical-align: middle;
     transition: background 0.25s;
 }
+
 .toggle-switch:before {
     content: "";
     display: block;
     background: var(--bg-color);
     border-radius: 50%;
-    width: 1.6rem; /* largura reduzida do círculo */
-    height: 1.6rem; /* altura reduzida do círculo */
+    width: 1.6rem; /* reduced circle width */
+    height: 1.6rem; /* reduced circle height */
     position: absolute;
     top: 0.2rem;
     left: 0.2rem;
     transition: left 0.25s;
 }
+
 .toggle:hover .toggle-switch:before {
     background: var(--bg-color);
 }
+
 .toggle-checkbox:checked + .toggle-switch:before {
-    left: 2.2rem; /* ajustado conforme a nova largura */
+    left: 2.2rem; /* adjusted according to the new width */
 }
+
 .toggle-checkbox {
     position: absolute;
     visibility: hidden;
 }
+
 .back-to {
     margin-right: 10px;
 }
@@ -204,7 +213,7 @@ strong {
     color: var(--txt-color);
 }
 
-/* ===== Conteúdo ===== */
+/* ===== Content ===== */
 .content {
     background-color: var(--system-color);
 }
@@ -230,7 +239,7 @@ strong {
     width: 100%;
     border-radius: 10px;
     height: auto;
-} 
+}
 
 .all-card {
     justify-content: flex-start;
@@ -298,14 +307,14 @@ strong {
     margin-bottom: 20px;
 }
 
-.naoModificavel{
+.naoModificavel {
     background-color: var(--bg-color-less);
     padding: 2rem 3rem;
     margin: 0 2rem 3rem 2rem;
 }
 
-#modal-data, #modal-horario, #modal-tipoConsulta
-, #modal-nomeProfissional, #modal-raProfissional {
+#modal-data, #modal-horario, #modal-tipoConsulta,
+#modal-nomeProfissional, #modal-raProfissional {
     border: var(--input-border) solid 1px;
     border-radius: 5px;
 }
@@ -340,7 +349,7 @@ strong {
     flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 2.5rem;
-    align-items: center; /* Alinha os campos verticalmente */
+    align-items: center; /* Aligns fields vertically */
 }
 
 strong.label-modal {
@@ -349,7 +358,7 @@ strong.label-modal {
     font-weight: 500;
 }
 
-/* Estilizando o botão de fechar */
+/* Styling the close button */
 .close {
     color: #aaa;
     float: right;
@@ -364,24 +373,24 @@ strong.label-modal {
     cursor: pointer;
 }
 
-/* Estilizando os campos de formulário */
+/* Styling form fields */
 input[type="text"], input[type="number"], input[type="date"], select, textarea {
-    width: 100%; /* Faz o campo preencher toda a largura */
+    width: 100%; /* Makes the field fill the entire width */
     padding: 10px;
-    margin: 10px 0 20px 0; /* Distância entre os campos */
+    margin: 10px 0 20px 0; /* Distance between fields */
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    box-sizing: border-box; /* Para garantir que o padding não afete a largura */
+    box-sizing: border-box; /* To ensure padding does not affect width */
 }
 
-/* Estilizando o <textarea> */
+/* Styling the <textarea> */
 textarea {
-    resize: vertical; /* Permite redimensionar para cima/baixo */
-    min-height: fit-content; /* Definindo uma altura mínima para o textarea */
+    resize: vertical; /* Allows vertical resizing */
+    min-height: fit-content; /* Sets a minimum height for the textarea */
 }
 
-/* Estilizando os <select> */
+/* Styling the <select> */
 select {
     padding: 10px;
     border-radius: 5px;
@@ -389,12 +398,12 @@ select {
     border: 1px solid #ccc;
 }
 
-/* Estilizando os títulos dentro do modal */
+/* Styling titles inside the modal */
 h2, p {
     color: var(--text-color);
 }
 
-/* Modificando a cor do botão de salvar */
+/* Modifying the save button color */
 button {
     background-color: #c34e4e;
     color: white;
@@ -419,13 +428,13 @@ img {
 }
 
 .icon {
-    fill: var(--txt-color); /* Aplica a cor inicial */
+    fill: var(--txt-color); /* Applies initial color */
     width: auto;
     height: 3rem;
 }
 
 .dark-mode .icon {
-    fill: var(--txt-color); /* Muda a cor no modo escuro */
+    fill: var(--txt-color); /* Changes color in dark mode */
 }
 
 .back-to-svg {
@@ -436,41 +445,41 @@ img {
 }
 
 .dark-mode .back-to-svg {
-    fill: var(--txt-color); /* Muda a cor no modo escuro */
+    fill: var(--txt-color); /* Changes color in dark mode */
 }
 
 
-/* Estilização da barra lateral */
-/* Seleciona a barra de rolagem */
+/* Scrollbar Styling */
+/* Selects the scrollbar */
 ::-webkit-scrollbar {
-    width: 16px; /* Largura da barra de rolagem */
-  }
-  
-  /* Estiliza a trilha da barra de rolagem */
-  ::-webkit-scrollbar-track {
-    background: var(--bg-color); /* Cor de fundo da trilha */
-  }
-  
-  /* Estiliza o polegar da barra de rolagem */
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--system-color); /* Cor do polegar */
+    width: 16px; /* Scrollbar width */
+}
+
+/* Styles the scrollbar track */
+::-webkit-scrollbar-track {
+    background: var(--bg-color); /* Track background color */
+}
+
+/* Styles the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+    background-color: var(--system-color); /* Thumb color */
     border-radius: 6px;
-    border-width: 3px 2px 3px 4px; /* Ordem: cima, direita, baixo, esquerda */
+    border-width: 3px 2px 3px 4px; /* Order: top, right, bottom, left */
     border-style: solid;
     border-color: var(--bg-color);
 }
-  
-  /* Estiliza o polegar ao passar o mouse */
-  ::-webkit-scrollbar-thumb:hover {
+
+/* Styles the thumb on hover */
+::-webkit-scrollbar-thumb:hover {
     background-color: #2a605c;
-  }
+}
 
-  /* RESET DE ESTILOS DOS INPUTS */
+/* INPUT STYLES RESET */
 
-  
-  /* Remove estilizações específicas de inputs, selects e buttons */
-  input,
-  select {
+
+/* Removes specific styling from inputs, selects, and buttons */
+input,
+select {
     background: none;
     border: none;
     box-shadow: none;
@@ -478,49 +487,47 @@ img {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-  }
-  
-  /* Remove estilos de inputs específicos */
-  input[type="text"],
-  input[type="password"],
-  input[type="email"],
-  input[type="number"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="url"] {
+}
+
+/* Removes specific input styles */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"] {
     background: none;
     border: none;
     box-shadow: none;
     outline: none;
-  }
-  
+}
 
-  
-  /* Remove estilos de checkboxes e radios */
-  input[type="checkbox"],
-  input[type="radio"] {
+
+/* Removes checkbox and radio styles */
+input[type="checkbox"],
+input[type="radio"] {
     width: auto;
     margin: 0;
     padding: 0;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-  }
-  
-  /* Remove estilos de selects */
-  select {
+}
+
+/* Removes select styles */
+select {
     background: none;
     border: none;
     box-shadow: none;
     outline: none;
-  }
-  
-  /* Remove estilos de textareas */
-  textarea {
+}
+
+/* Removes textarea styles */
+textarea {
     background: none;
     border: none;
     box-shadow: none;
     outline: none;
     resize: none;
-  }
-  
+}

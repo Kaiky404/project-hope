@@ -1,24 +1,25 @@
 :root {
-    /* ===== Cores Imutáveis ===== */
+    /* ===== Immutable Colors ===== */
     --system-color: #00675e;
     --func-hover: #00675e22;
     --func-active: #00433f3d;
 
-    /* ===== Cores Light ===== */
+    /* ===== Light Colors ===== */
     --input-color: #e7e7e7;
     --grey-color: #b2b2b2;
     --bg-color: #F5F5F5;
     --txt-color: #333333;
 
-    /* ===== Cores Dark ===== */
+    /* ===== Dark Colors ===== */
     --input-color-dark: #c5c5c5;
     --grey-color-dark: #8a8a8a;
     --bg-color-dark: #121212;
     --txt-color-dark: #E0E0E0;
 
-    /* ===== Tipografia ===== */
+    /* ===== Typography ===== */
     --system-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .dark-mode {
     --grey-color: var(--grey-color-dark);
     --input-color: var(--input-color-dark);
@@ -36,7 +37,7 @@
     display: grid;
     grid-template-columns: 200px 1fr;
     grid-template-rows: auto 1fr;
-    grid-template-areas: 
+    grid-template-areas:
         "logo funcs"
         "sidebar content";
     min-height: 100vh;
@@ -47,7 +48,7 @@
     color: var(--txt-color);
 }
 
-.logo, .funcs, .sidebar{
+.logo, .funcs, .sidebar {
     background-color: var(--bg-color);
 }
 
@@ -81,7 +82,7 @@ strong {
     color: var(--system-color);
 }
 
-/* ===== Funcionalidades ===== */
+/* ===== Functionalities ===== */
 .funcs {
     grid-area: funcs;
     display: grid;
@@ -104,52 +105,60 @@ strong {
     grid-column: 5;
 }
 
-/* Modo escuro quando o checkbox está marcado */
+/* Dark mode when the checkbox is checked */
 .toggle-checkbox:checked ~ #navegationRedirect {
-    background-color: var(--bg-color-dark); /* Cor de fundo em modo escuro */
-    color: var(--bg-color-dark); /* Cor do texto em modo escuro */
+    background-color: var(--bg-color-dark); /* Background color in dark mode */
+    color: var(--bg-color-dark); /* Text color in dark mode */
 }
+
 .toggle-checkbox:checked ~ #navegationRedirect .navegation-redirect-link {
-    color: var(--bg-color-dark); /* Cor dos links em modo escuro */
+    color: var(--bg-color-dark); /* Link color in dark mode */
 }
+
 /* toggle */
 .toggle {
     align-self: center;
     cursor: pointer;
     display: inline-block;
-}   
+}
+
 .toggle-switch {
     display: inline-block;
     background: var(--system-color);
-    border-radius: 1rem; /* bordas mais arredondadas */
-    width: 4rem; /* largura reduzida */
-    height: 2rem; /* altura reduzida */
+    border-radius: 1rem; /* more rounded borders */
+    width: 4rem; /* reduced width */
+    height: 2rem; /* reduced height */
     position: relative;
     vertical-align: middle;
     transition: background 0.25s;
 }
+
 .toggle-switch:before {
     content: "";
     display: block;
     background: var(--bg-color);
     border-radius: 50%;
-    width: 1.6rem; /* largura reduzida do círculo */
-    height: 1.6rem; /* altura reduzida do círculo */
+    width: 1.6rem; /* reduced circle width */
+    height: 1.6rem; /* reduced circle height */
     position: absolute;
     top: 0.2rem;
     left: 0.2rem;
     transition: left 0.25s;
 }
+
 .toggle:hover .toggle-switch:before {
     background: var(--bg-color);
 }
+
 .toggle-checkbox:checked + .toggle-switch:before {
-    left: 2.2rem; /* ajustado conforme a nova largura */
+    left: 2.2rem; /* adjusted according to the new width */
 }
+
 .toggle-checkbox {
     position: absolute;
     visibility: hidden;
 }
+
 .back-to {
     margin-right: 10px;
 }
@@ -167,11 +176,11 @@ strong {
 
 .sidebar a {
     display: grid;
-    place-items: center; 
+    place-items: center;
     font-size: 16px;
     text-decoration: none;
     color: black;
-    padding: 10px; 
+    padding: 10px;
     transition-duration: 150ms;
     transition-timing-function: ease-in-out;
 }
@@ -198,7 +207,7 @@ strong {
     color: var(--txt-color);
 }
 
-/* ===== Conteúdo ===== */
+/* ===== Content ===== */
 .content {
     background-color: var(--system-color);
     display: flex;
@@ -229,13 +238,13 @@ strong {
 }
 
 .icon {
-    fill: var(--txt-color); /* Aplica a cor inicial */
+    fill: var(--txt-color); /* Applies initial color */
     width: 3rem;
     height: 3rem;
 }
 
 .dark-mode .icon {
-    fill: var(--txt-color); /* Muda a cor no modo escuro */
+    fill: var(--txt-color); /* Changes color in dark mode */
 }
 
 .back-to-svg {
@@ -246,10 +255,10 @@ strong {
 }
 
 .dark-mode .back-to-svg {
-    fill: var(--txt-color); /* Muda a cor no modo escuro */
+    fill: var(--txt-color); /* Changes color in dark mode */
 }
 
-/*cadastro*/
+/* registration */
 
 .path-strong {
     color: var(--path-strong);
@@ -279,6 +288,7 @@ strong {
 .input.correct {
     background-color: var(--grey-color);
 }
+
 .input.error {
     background-color: var(--input-color);
 }
@@ -296,8 +306,9 @@ strong {
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 10px;
-    align-items: center; /* Alinha os campos verticalmente */
+    align-items: center; /* Aligns fields vertically */
 }
+
 .imagem-container {
     width: 100px;
     height: 100px;
@@ -307,25 +318,27 @@ strong {
     align-items: center;
     overflow: hidden;
     cursor: pointer;
-    position: relative; /* Adicionado para posicionar o botão */
+    position: relative; /* Added to position the button */
 }
+
 .dark-mode .imagem-container {
     border: 1px solid #292929;
 }
 
 .imagem-label {
-    position: absolute; /* Posiciona o botão absolutamente */
-    top: 50%; /* Centraliza verticalmente */
-    left: 50%; /* Centraliza horizontalmente */
-    transform: translate(-50%, -50%); /* Ajusta o centro do botão */
-    padding: 8px 16px; /* Espaçamento interno do botão */
-    background-color: #f0f0f0; /* Cor de fundo do botão */
-    border-radius: 5px; /* Bordas arredondadas do botão */
-    cursor: pointer; /* Indica que o elemento é clicável */
-    z-index: 1; /* Garante que o botão esteja acima da imagem */
+    position: absolute; /* Positions the button absolutely */
+    top: 50%; /* Centers vertically */
+    left: 50%; /* Centers horizontally */
+    transform: translate(-50%, -50%); /* Adjusts the center of the button */
+    padding: 8px 16px; /* Internal padding of the button */
+    background-color: #f0f0f0; /* Button background color */
+    border-radius: 5px; /* Button rounded borders */
+    cursor: pointer; /* Indicates that the element is clickable */
+    z-index: 1; /* Ensures the button is above the image */
 }
+
 .dark-mode .imagem-label {
-    background-color: #9c9c9c; /* Cor de fundo do botão */
+    background-color: #9c9c9c; /* Button background color */
 }
 
 .imagem-container {
@@ -366,13 +379,13 @@ strong {
     align-items: center;
     width: 100%;
     height: 100%;
-    
+
 }
 
 .imagem-preview img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: cover; /* Ou object-fit: fill; */
+    object-fit: cover; /* Or object-fit: fill; */
     display: none;
 
 }
@@ -416,7 +429,7 @@ strong {
     max-height: 200px;
 }
 
-/* Ajustes específicos */
+/* Specific adjustments */
 
 .sexo label {
     margin-right: 10px;
@@ -425,7 +438,7 @@ strong {
 .predisposicao, .cuidados {
     flex-basis: 100%;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 .radio-group {
@@ -474,44 +487,44 @@ strong {
     gap: 10px;
     margin-bottom: 10px;
     width: fit-content;
-    align-items: center; /* Alinha os campos verticalmente */
+    align-items: center; /* Aligns fields vertically */
 }
 
 .campo.predisposicao {
     display: flex;
-    align-items: flex-start; /* Alinha os elementos ao topo */
-  }
-  
-  .radio-group {
-    margin-right: 10px; /* Adiciona um espaço entre os radios e o textarea */
-  }
-  
-  .textarea-condicional {
-    flex-grow: 1; /* Permite que o textarea cresça para ocupar o espaço restante */
-    box-sizing: border-box;
-  }
+    align-items: flex-start; /* Aligns elements to the top */
+}
 
-/* Estilização da barra lateral */
-/* Seleciona a barra de rolagem */
+.radio-group {
+    margin-right: 10px; /* Adds space between radios and textarea */
+}
+
+.textarea-condicional {
+    flex-grow: 1; /* Allows the textarea to grow to occupy the remaining space */
+    box-sizing: border-box;
+}
+
+/* Scrollbar Styling */
+/* Selects the scrollbar */
 ::-webkit-scrollbar {
-    width: 16px; /* Largura da barra de rolagem */
-  }
-  
-  /* Estiliza a trilha da barra de rolagem */
-  ::-webkit-scrollbar-track {
-    background: var(--bg-color); /* Cor de fundo da trilha */
-  }
-  
-  /* Estiliza o polegar da barra de rolagem */
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--system-color); /* Cor do polegar */
+    width: 16px; /* Scrollbar width */
+}
+
+/* Styles the scrollbar track */
+::-webkit-scrollbar-track {
+    background: var(--bg-color); /* Track background color */
+}
+
+/* Styles the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+    background-color: var(--system-color); /* Thumb color */
     border-radius: 6px;
-    border-width: 3px 2px 3px 4px; /* Ordem: cima, direita, baixo, esquerda */
+    border-width: 3px 2px 3px 4px; /* Order: top, right, bottom, left */
     border-style: solid;
     border-color: var(--bg-color);
 }
-  
-  /* Estiliza o polegar ao passar o mouse */
-  ::-webkit-scrollbar-thumb:hover {
+
+/* Styles the thumb on hover */
+::-webkit-scrollbar-thumb:hover {
     background-color: #2a605c;
-  }
+}
