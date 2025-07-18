@@ -1,215 +1,202 @@
-const imagemInput = document.getElementById("imagem-input");
-const imagemPreviewImg = document.getElementById("imagem-preview-img");
-const imagemLabel = document.querySelector(".imagem-label");
+const imageInput = document.getElementById("imagem-input"); // Renamed imagemInput to imageInput
+const imagePreviewImg = document.getElementById("imagem-preview-img"); // Renamed imagemPreviewImg to imagePreviewImg
+const imageLabel = document.querySelector(".imagem-label"); // Renamed imagemLabel to imageLabel
 
-// evento dispara quando arquivo é selecionado
-imagemInput.addEventListener("change", function () {
-    // obtém o arquivo selecionado pelo user, o 0(zero) indica a primeira imagem
+// Event fires when a file is selected
+imageInput.addEventListener("change", function () {
+    // Gets the file selected by the user, 0 indicates the first image
     const file = this.files[0];
-    // verifica se arquivo foi selecionado
+    // Checks if a file was selected
     if (file) {
         const reader = new FileReader();
-        
-        // função pra aparecer a imagem e sumir o label
+
+        // Function to display the image and hide the label
         reader.onload = function (e) {
-            imagemPreviewImg.src = e.target.result;
-            imagemPreviewImg.style.display = "block";
-            imagemLabel.classList.add("hidden");
+            imagePreviewImg.src = e.target.result;
+            imagePreviewImg.style.display = "block";
+            imageLabel.classList.add("hidden");
         };
         reader.readAsDataURL(file);
-        // some com a imagem e limpa src, remove classe hidden do label
+        // Hides the image and clears src, removes hidden class from the label
     } else {
-        imagemPreviewImg.src = "";
-        imagemPreviewImg.style.display = "none";
-        imagemLabel.classList.remove("hidden");
+        imagePreviewImg.src = "";
+        imagePreviewImg.style.display = "none";
+        imageLabel.classList.remove("hidden");
     }
 });
 
 
-const adcionarCadastro = document.getElementById("adicionar-cadastro");
-const meuFormulario = document.getElementById("meuFormulario");
-const meuFormulario2 = document.getElementById("meuFormulario2");
+const addRegistration = document.getElementById("adicionar-cadastro"); // Renamed adcionarCadastro to addRegistration
+const myForm = document.getElementById("meuFormulario"); // Renamed meuFormulario to myForm
+const myForm2 = document.getElementById("meuFormulario2"); // Renamed meuFormulario2 to myForm2
 
-adcionarCadastro.addEventListener("click", function (event) {
-    // checar se o campos dos forms estão validos
-    if (!meuFormulario.checkValidity() || !meuFormulario2.checkValidity()) {
+addRegistration.addEventListener("click", function (event) {
+    // Check if form fields are valid
+    if (!myForm.checkValidity() || !myForm2.checkValidity()) {
         event.preventDefault();
-        alert("Por favor, preencha todos os campos corretamente em ambos os formulários.");
+        alert("Please fill in all fields correctly in both forms."); // Translated alert message
         return;
     }
-    // campos do formulário do animal
-    const paciente = document.getElementById("paciente").value;
-    const especie = document.getElementById("especie").value;
-    const sexo = document.querySelector('input[name="sexo"]:checked')?.value || "Não informado";
-    const vacina = document.querySelector('input[name="vacina"]:checked')?.value || "Não informado";
-    const raca = document.getElementById("raca").value;
-    const idade = document.getElementById("idade").value;
+    // Animal form fields
+    const patient = document.getElementById("paciente").value; // Renamed paciente to patient
+    const species = document.getElementById("especie").value; // Renamed especie to species
+    const gender = document.querySelector('input[name="sexo"]:checked')?.value || "Not informed"; // Translated default value
+    const vaccine = document.querySelector('input[name="vacina"]:checked')?.value || "Not informed"; // Translated default value
+    const breed = document.getElementById("raca").value; // Renamed raca to breed
+    const age = document.getElementById("idade").value; // Renamed idade to age
     const microchip = document.getElementById("microchip").value;
-    const porte = document.getElementById("porte").value;
-    const pelagem = document.getElementById("pelagem").value;
-    const dataNasc = document.getElementById("data").value;
-    const predisposicao = document.querySelector('input[name="predisposicao"]:checked')?.value || "Não informado";
-    const doenca = document.getElementById("doenca").value;
-    const cuidados = document.querySelector('input[name="cuidados"]:checked')?.value || "Não informado";
-    const cuidadoDesc = document.getElementById("cuidado").value;
-    // campos do formulário do tutor
-    const tutor = document.getElementById("tutor").value;
+    const size = document.getElementById("porte").value; // Renamed porte to size
+    const coat = document.getElementById("pelagem").value; // Renamed pelagem to coat
+    const birthDate = document.getElementById("data").value; // Renamed data to birthDate
+    const predisposition = document.querySelector('input[name="predisposicao"]:checked')?.value || "Not informed"; // Translated default value
+    const disease = document.getElementById("doenca").value; // Renamed doenca to disease
+    const care = document.querySelector('input[name="cuidados"]:checked')?.value || "Not informed"; // Renamed cuidados to care, translated default value
+    const careDescription = document.getElementById("cuidado").value; // Renamed cuidadoDesc to careDescription
+
+    // Guardian form fields
+    const guardianName = document.getElementById("tutor").value; // Renamed tutor to guardianName
     const email = document.getElementById("email").value;
-    const telefone = document.getElementById("telefone").value;
-    const endereco = document.getElementById("endereco").value;
-    
-    
-    //objeto com os dados do animal
+    const phone = document.getElementById("telefone").value; // Renamed telefone to phone
+    const address = document.getElementById("endereco").value; // Renamed endereco to address
+
+
+    // Object with animal data
     const animal = {
-        paciente,
-        especie,
-        sexo,
-        vacina,
-        raca,
-        idade,
+        paciente: patient, // Keeping original key names for consistency with data structure
+        especie: species,
+        sexo: gender,
+        vacina: vaccine,
+        raca: breed,
+        idade: age,
         microchip,
-        porte,
-        pelagem,
-        dataNasc,
-        predisposicao,
-        doenca,
-        cuidados,
-        cuidadoDesc,
-        imagem: imagemPreviewImg.src,
-        dataCadastro: new Date().toLocaleDateString()
+        porte: size,
+        pelagem: coat,
+        dataNasc: birthDate,
+        predisposicao: predisposition,
+        doenca: disease,
+        cuidados: care,
+        cuidadoDesc: careDescription,
+        imagem: imagePreviewImg.src,
+        dataCadastro: new Date().toLocaleDateString() // Keeping original key name
     };
-    // objeto com os dados do tutor
-    const guardiao = {
-        tutor,
+    // Object with guardian data
+    const guardian = {
+        tutor: guardianName, // Keeping original key name
         email,
-        telefone,
-        endereco
+        telefone: phone, // Keeping original key name
+        endereco: address // Keeping original key name
     };
-    // juntando os objetos em um
-    const cadastro = {
+    // Combining objects into one
+    const registration = { // Renamed cadastro to registration
         animal,
-        guardiao
+        guardiao: guardian // Keeping original key name
     }
-    
-    
-    // Recupera a lista do localStorage e adiciona o novo cadastro
-    let listaCadastros = JSON.parse(localStorage.getItem("cadastros")) || [];
-    listaCadastros.push(cadastro);
-    localStorage.setItem("cadastros", JSON.stringify(listaCadastros));
-    
-    
-    // Redireciona para a página "cliente.html"
-    window.location.href = "cliente.html";
-    
-    // Cria a div do novo animal
+
+
+    // Retrieves the list from localStorage and adds the new registration
+    let registrationsList = JSON.parse(localStorage.getItem("cadastros")) || []; // Renamed listaCadastros to registrationsList
+    registrationsList.push(registration);
+    localStorage.setItem("cadastros", JSON.stringify(registrationsList));
+
+
+    // Redirects to the "cliente.html" page
+    window.location.href = "/views/patients.html"; // Updated path and filename
+
+    // Creates the div for the new animal
     const animalDiv = document.createElement("div");
     animalDiv.classList.add("cliente-card");
     animalDiv.innerHTML = `
-        <!-- animal -->
-        <h3>${cadastro.animal.paciente}</h3>
-        <p><strong>Espécie:</strong> ${cadastro.animal.especie}</p>
-        <p><strong>Sexo:</strong> ${cadastro.animal.sexo}</p>
-        <p><strong>Vacina:</strong> ${cadastro.animal.vacina}</p>
-        <p><strong>Raça:</strong> ${cadastro.animal.raca}</p>
-        <p><strong>Idade:</strong> ${cadastro.animal.idade} anos</p>
-        <p><strong>Microchip:</strong> ${cadastro.animal.microchip}</p>
-        <p><strong>Porte:</strong> ${cadastro.animal.porte}</p>
-        <p><strong>Pelagem:</strong> ${cadastro.animal.pelagem}</p>
-        <p><strong>Data de Nascimento:</strong> ${cadastro.animal.dataNasc}</p>
-        <p><strong>Predisposição a Doenças:</strong> ${cadastro.animal.predisposicao} ${cadastro.animal.predisposicao === "sim" ? ` - ${cadastro.animal.doenca}` : ""}</p>
-        <p><strong>Cuidados Especiais:</strong> ${cadastro.animal.cuidados} ${cadastro.animal.cuidados === "sim" ? ` - ${cadastro.animal.cuidadoDesc}` : ""}</p>
-        <!-- tutor -->
-        <h3>${cadastro.guardiao.tutor}</h3>
-        <p><strong>E-mail:</strong> ${cadastro.guardiao.email}</p>
-        <p><strong>Telefone:</strong> ${cadastro.guardiao.telefone}</p>
-        <p><strong>Endereço:</strong> ${cadastro.guardiao.endereco}</p>
-    `;
-    
-    // Adiciona a div do novo animal à lista na página "cliente.html"
-    document.getElementById("lista-cliente").appendChild(animalDiv);
+        <h3>${registration.animal.paciente}</h3>
+        <p><strong>Species:</strong> ${registration.animal.especie}</p> <p><strong>Gender:</strong> ${registration.animal.sexo}</p> <p><strong>Vaccine:</strong> ${registration.animal.vacina}</p> <p><strong>Breed:</strong> ${registration.animal.raca}</p> <p><strong>Age:</strong> ${registration.animal.idade} years</p> <p><strong>Microchip:</strong> ${registration.animal.microchip}</p> <p><strong>Size:</strong> ${registration.animal.porte}</p> <p><strong>Coat:</strong> ${registration.animal.pelagem}</p> <p><strong>Date of Birth:</strong> ${registration.animal.dataNasc}</p> <p><strong>Disease Predisposition:</strong> ${registration.animal.predisposicao} ${registration.animal.predisposicao === "sim" ? ` - ${registration.animal.doenca}` : ""}</p> <p><strong>Special Care:</strong> ${registration.animal.cuidados} ${registration.animal.cuidados === "sim" ? ` - ${registration.animal.cuidadoDesc}` : ""}</p> <h3>${registration.guardiao.tutor}</h3>
+        <p><strong>Email:</strong> ${registration.guardiao.email}</p> <p><strong>Phone:</strong> ${registration.guardiao.telefone}</p> <p><strong>Address:</strong> ${registration.guardiao.endereco}</p> `;
+
+    // Adds the new animal's div to the list on the "cliente.html" page
+    // This part of the code will likely not execute as the page redirects.
+    // The "client.js" script on "patients.html" will handle rendering the list.
+    // document.getElementById("lista-cliente").appendChild(animalDiv);
 });
 
 
-// Comportamento de fazer o textarea aparecer ou desaparecer
-function configurarCampoCondicional(campo) {
-    const radioSim = campo.querySelector('[value="sim"]');
-    const textarea = campo.querySelector('.textarea-condicional');
-    
-    function atualizarVisibilidadeTextarea() {
-        if (radioSim.checked) {
+// Behavior to make the textarea appear or disappear
+function configureConditionalField(field) { // Renamed configurarCampoCondicional to configureConditionalField, campo to field
+    const radioYes = field.querySelector('[value="sim"]'); // Renamed radioSim to radioYes
+    const textarea = field.querySelector('.textarea-condicional');
+
+    function updateTextareaVisibility() { // Renamed atualizarVisibilidadeTextarea to updateTextareaVisibility
+        if (radioYes.checked) {
             textarea.style.display = 'block';
         } else {
             textarea.style.display = 'none';
         }
     }
-    
-    radioSim.addEventListener('change', atualizarVisibilidadeTextarea);
-    campo.querySelector('[value="nao"]').addEventListener('change', atualizarVisibilidadeTextarea);
-    campo.querySelector('[value="desconhecido"]').addEventListener('change', atualizarVisibilidadeTextarea);
-    
-    atualizarVisibilidadeTextarea(); // Inicializa a visibilidade
+
+    radioYes.addEventListener('change', updateTextareaVisibility);
+    field.querySelector('[value="nao"]').addEventListener('change', updateTextareaVisibility);
+    field.querySelector('[value="desconhecido"]').addEventListener('change', updateTextareaVisibility);
+
+    updateTextareaVisibility(); // Initializes visibility
 }
 
 
-// Aplica a configuração aos campos
-configurarCampoCondicional(document.querySelector('.campo.predisposicao'));
-configurarCampoCondicional(document.querySelector('.campo.cuidados'));
+// Applies the configuration to the fields
+configureConditionalField(document.querySelector('.campo.predisposicao'));
+configureConditionalField(document.querySelector('.campo.cuidados'));
 
 
 document.addEventListener("DOMContentLoaded", function () {
     const inputs = document.querySelectorAll(".input");
     const selects = document.querySelectorAll(".select");
-    
+
     inputs.forEach(input => {
         input.addEventListener("change", function () {
-            validarInput(input);
+            validateInput(input); // Renamed validarInput to validateInput
         });
     });
-    
+
     selects.forEach(select => {
         select.addEventListener("change", function () {
-            validarSelect(select);
+            validateSelect(select); // Renamed validarSelect to validateSelect
         });
     });
-    
-    // usando regex na maioria dos campos pra validação, regex que não sei como usar :)
-    function validarInput(input) {
-        if (input.id === "paciente") {
+
+    // Using regex for most fields for validation, regex I don't know how to use :)
+    function validateInput(input) { // Renamed validarInput to validateInput
+        if (input.id === "paciente") { // Patient
             /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{3,}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
         } else if (input.id === "microchip") {
             /^\d{15}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
-        } else if (input.id === "data") {
-            validarData(input);
-        } else if (input.id === "idade") {
-            validarIdade(input);
-        } else if (input.id === "raca") {
+        } else if (input.id === "data") { // Date of birth
+            validateDate(input); // Renamed validarData to validateDate
+        } else if (input.id === "idade") { // Age
+            validateAge(input); // Renamed validarIdade to validateAge
+        } else if (input.id === "raca") { // Breed
             /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{2,}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
-        } else if (input.id === "pelagem") {
+        } else if (input.id === "pelagem") { // Coat
             /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{2,}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
-        } else if (input.id === "tutor") {
+        } else if (input.id === "tutor") { // Guardian name
             /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{3,}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
         } else if (input.id === "email") {
             /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
-        } else if (input.id === "telefone") {
+        } else if (input.id === "telefone") { // Phone
             /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
-        } else if (input.id === "endereco") {
+        } else if (input.id === "endereco") { // Address
             /^[A-Za-zÀ-ÖØ-öø-ÿ0-9\s,.-]{5,}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
         }
     }
-    
-    function validarData(input) {
-        const dataSelecionada = new Date(input.value);
-        const dataAtual = new Date();
-        
-        if (isNaN(dataSelecionada.getTime())) {
+
+    function validateDate(input) { // Renamed validarData to validateDate
+        const selectedDate = new Date(input.value); // Renamed dataSelecionada to selectedDate
+        const currentDate = new Date(); // Renamed dataAtual to currentDate
+
+        if (isNaN(selectedDate.getTime())) {
             input.classList.add("error");
             input.classList.remove("correct");
             return;
         }
-        
-        const ano = dataSelecionada.getFullYear();
-        
-        if (ano < 1900 || ano > dataAtual.getFullYear() || dataSelecionada > dataAtual) {
+
+        const year = selectedDate.getFullYear(); // Renamed ano to year
+
+        if (year < 1900 || year > currentDate.getFullYear() || selectedDate > currentDate) {
             input.classList.add("error");
             input.classList.remove("correct");
         } else {
@@ -217,21 +204,21 @@ document.addEventListener("DOMContentLoaded", function () {
             input.classList.remove("error");
         }
     }
-    
-    function validarSelect(select) {
+
+    function validateSelect(select) { // Renamed validarSelect to validateSelect
         if (select.value) {
             select.classList.add("selected");
         } else {
             select.classList.remove("selected");
         }
     }
-    
-    
-    function validarIdade(input) {
-        const valor = input.value.trim();
-        const idade = parseInt(valor, 10);
-        
-        if (!isNaN(idade) && idade >= 0 && idade <= 100) {
+
+
+    function validateAge(input) { // Renamed validarIdade to validateAge
+        const value = input.value.trim(); // Renamed valor to value
+        const age = parseInt(value, 10); // Renamed idade to age
+
+        if (!isNaN(age) && age >= 0 && age <= 100) {
             input.classList.add("correct");
             input.classList.remove("error");
         } else {
@@ -240,5 +227,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 });
-
-

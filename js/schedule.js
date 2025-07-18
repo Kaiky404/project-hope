@@ -1,6 +1,6 @@
 let calendar = document.querySelector('.calendar');
 
-const month_names = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+const month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; // Translated month names
 
 isLeapYear = (year) => {
     return (year % 4 === 0 && year % 100 !== 0 && year % 400 !== 0) || (year % 100 === 0 && year % 400 === 0);
@@ -13,27 +13,27 @@ getFebDays = (year) => {
 generateCalendar = (month, year) => {
     let calendar_days = calendar.querySelector('.calendar-days');
     let calendar_header_year = calendar.querySelector('#year');
-    
+
     let days_of_month = [31, getFebDays(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    
+
     calendar_days.innerHTML = '';
-    
+
     let currDate = new Date();
     if (month === undefined) month = currDate.getMonth();
     if (year === undefined) year = currDate.getFullYear();
-    
+
     let curr_month_name = `${month_names[month]}`;
     month_picker.innerHTML = curr_month_name;
     calendar_header_year.innerHTML = year;
-    
+
     let first_day = new Date(year, month, 1);
-    
+
     for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
         let day = document.createElement('div');
         if (i >= first_day.getDay()) {
             day.classList.add('calendar-day-hover');
             day.innerHTML = i - first_day.getDay() + 1;
-            
+
             if (
                 i - first_day.getDay() + 1 === currDate.getDate() &&
                 year === currDate.getFullYear() &&
@@ -41,40 +41,37 @@ generateCalendar = (month, year) => {
             ) {
                 day.classList.add('curr-date');
             }
-            
+
             const dayNumber = i - first_day.getDay() + 1;
             const isoDate = `${year}-${(month + 1).toString().padStart(2, '0')}-${dayNumber.toString().padStart(2, '0')}`;
             day.dataset.date = isoDate;
-            
+
             day.addEventListener('click', () => {
                 const clickedDate = day.dataset.date;
-                
+
                 function expandInsert(date) {
                     const insert = document.createElement('div');
                     insert.className = "insert";
                     insert.innerHTML = `
                         <div class="event-container">
                             <span class="close">&times;</span>
-                            <input type="text" class="event-name-input" placeholder="Nome do Evento" />
-                            <input type="date" class="event-date-input" value="${date}" readonly/>
+                            <input type="text" class="event-name-input" placeholder="Event Name" /> <input type="date" class="event-date-input" value="${date}" readonly/>
                             <input type="time" class="event-time-input" />
-                            <textarea class="event-description-input" placeholder="Descrição do Evento"></textarea>
-                            <button class="add-event">Adicionar Evento</button>
-                        </div>
+                            <textarea class="event-description-input" placeholder="Event Description"></textarea> <button class="add-event">Add Event</button> </div>
                     `;
-                    
+
                     const closeButton = insert.querySelector(".close");
                     closeButton.addEventListener("click", () => insert.remove());
-                    
+
                     document.body.appendChild(insert);
-                    
+
                     const addEventButton = insert.querySelector('.add-event');
                     addEventButton.addEventListener('click', () => {
                         const event_name = insert.querySelector('.event-name-input').value;
                         const event_date = insert.querySelector('.event-date-input').value;
                         const event_time = insert.querySelector('.event-time-input').value;
                         const event_description = insert.querySelector('.event-description-input').value;
-                        
+
                         if (event_name && event_date && event_time && event_description) {
                             const eventData = {
                                 name: event_name,
@@ -82,18 +79,18 @@ generateCalendar = (month, year) => {
                                 time: event_time,
                                 description: event_description
                             };
-                            
+
                             let events = JSON.parse(localStorage.getItem('events')) || [];
                             events.push(eventData);
                             localStorage.setItem('events', JSON.stringify(events));
                             displayEvents();
                             document.body.removeChild(insert);
                         } else {
-                            alert('Por favor, preencha todos os campos.');
+                            alert('Please fill in all fields.'); // Translated alert message
                         }
                     });
                 }
-                
+
                 expandInsert(clickedDate);
             });
         }
@@ -152,19 +149,17 @@ function displayEvents() {
     events.forEach((event, index) => {
         const eventInfo = document.createElement('div');
         eventInfo.className = 'event-info';
-        
-        // Convertendo a data para DD-MM-YYYY para exibição
+
+        // Converting the date to DD-MM-YYYY for display
         const [year, month, day] = event.date.split('-');
         const formattedDate = `${day}-${month}-${year}`;
-        
+
         eventInfo.innerHTML = `
             <div class="name-and-close">
                 <h3 class="event-name">${event.name}</h3>
                 <span class="close">&times;</span>
             </div>
-            <p class="event-date">Data: ${formattedDate}</p>
-            <p class="event-time">Hora: ${event.time}</p>
-            <p class="event-description">${event.description}</p>
+            <p class="event-date">Date: ${formattedDate}</p> <p class="event-time">Time: ${event.time}</p> <p class="event-description">${event.description}</p>
         `;
         const closeButton = eventInfo.querySelector(".close");
         closeButton.addEventListener("click", () => {
