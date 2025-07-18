@@ -1,0 +1,522 @@
+:root {
+    /* ===== Cores Imutáveis ===== */
+    --system-color: #00675e;
+    --func-hover: #00675e22;
+    --func-active: #00433f3d;
+
+    /* ===== Cores Light ===== */
+    --bg-color: #F5F5F5;
+    --txt-color: #333333;
+    --bg-color-events: #65a5a1;
+    --bg-color-events-info: #b2d8d5;
+
+    /* ===== Cores Dark ===== */
+    --bg-color-dark: #121212;
+    --txt-color-dark: #E0E0E0;
+    --bg-color-events-dark: #29403e;
+    --bg-color-events-info-dark: #425c5c;
+
+    /* ===== Tipografia ===== */
+    --system-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.dark-mode {
+    --bg-color: var(--bg-color-dark);
+    --txt-color: var(--txt-color-dark);
+    --bg-color-events: var(--bg-color-events-dark);
+    --bg-color-events-info: var(--bg-color-events-info-dark);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+        "logo funcs"
+        "sidebar content";
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.logo, .funcs, .sidebar, .content {
+    font-family: var(--system-font);
+    color: var(--txt-color);
+}
+
+.logo, .funcs, .sidebar{
+    background-color: var(--bg-color);
+}
+
+.sidebar p {
+    font-size: 16px;
+    color: var(--txt-color);
+}
+
+.content .text {
+    font-size: 16px;
+    color: var(--txt-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ===== Logo ===== */
+.logo {
+    grid-area: logo;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo h3 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+strong {
+    color: var(--system-color);
+}
+
+/* ===== Funcionalidades ===== */
+.funcs {
+    grid-area: funcs;
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+}
+
+.funcs p {
+    font-size: 20px;
+    font-weight: 500;
+    grid-column: 1;
+}
+
+.funcs .toggle {
+    grid-column: 4;
+    justify-self: end;
+}
+
+.funcs span, .back-to {
+    grid-column: 5;
+}
+
+/* Modo escuro quando o checkbox está marcado */
+.toggle-checkbox:checked ~ #navegationRedirect {
+    background-color: var(--bg-color-dark); /* Cor de fundo em modo escuro */
+    color: var(--bg-color-dark); /* Cor do texto em modo escuro */
+}
+.toggle-checkbox:checked ~ #navegationRedirect .navegation-redirect-link {
+    color: var(--bg-color-dark); /* Cor dos links em modo escuro */
+}
+/* toggle */
+.toggle {
+    align-self: center;
+    cursor: pointer;
+    display: inline-block;
+}   
+.toggle-switch {
+    display: inline-block;
+    background: var(--system-color);
+    border-radius: 1rem; /* bordas mais arredondadas */
+    width: 4rem; /* largura reduzida */
+    height: 2rem; /* altura reduzida */
+    position: relative;
+    vertical-align: middle;
+    transition: background 0.25s;
+}
+.toggle-switch:before {
+    content: "";
+    display: block;
+    background: var(--bg-color);
+    border-radius: 50%;
+    width: 1.6rem; /* largura reduzida do círculo */
+    height: 1.6rem; /* altura reduzida do círculo */
+    position: absolute;
+    top: 0.2rem;
+    left: 0.2rem;
+    transition: left 0.25s;
+}
+.toggle:hover .toggle-switch:before {
+    background: var(--bg-color);
+}
+.toggle-checkbox:checked + .toggle-switch:before {
+    left: 2.2rem; /* ajustado conforme a nova largura */
+}
+.toggle-checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+.back-to {
+    margin-right: 10px;
+}
+
+
+/* ===== Sidebar ===== */
+.sidebar {
+    grid-area: sidebar;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: max(3em);
+    height: 100%;
+}
+
+.sidebar a {
+    display: grid;
+    place-items: center; 
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+    padding: 10px; 
+    transition-duration: 150ms;
+    transition-timing-function: ease-in-out;
+}
+
+.sidebar a:hover {
+    background-color: var(--func-hover);
+}
+
+.sidebar a.active {
+    background-color: var(--func-active);
+}
+
+#sidebar-item {
+    color: var(--txt-color);
+    transition-duration: 0ms;
+    display: flex;
+    justify-content: center;
+    gap: 0.2rem;
+}
+
+#logout {
+    padding-left: 0.3rem;
+    font-size: 2.3rem;
+    color: var(--txt-color);
+}
+
+/* ===== Conteúdo ===== */
+.content {
+    background-color: var(--system-color);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    grid-auto-rows: auto;
+}
+
+.content > div {
+    box-sizing: border-box;
+    text-align: center;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.content > div span,
+.content > div p {
+    color: var(--txt-color);
+}
+
+.icon {
+    fill: var(--txt-color); /* Aplica a cor inicial */
+    width: 3rem;
+    height: 3rem;
+}
+
+.dark-mode .icon {
+    fill: var(--txt-color); /* Muda a cor no modo escuro */
+}
+
+.back-to-svg {
+    fill: var(--txt-color);
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.dark-mode .back-to-svg {
+    fill: var(--txt-color); /* Muda a cor no modo escuro */
+}
+
+/* ===== Calendário ===== */
+.sub-body {
+    display: grid;
+    font-family: var(--txt-color);
+}
+
+.calendar {
+    margin: 10px;
+    height: max-content;
+    width: max-content;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--bg-color);
+    max-width: 600px;
+    min-width: auto;
+    max-height: 450px;
+    min-height: auto;
+}
+
+.content .calendar {
+    box-shadow: var(--shadow);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--txt-color);
+}
+
+.calendar-week-day {
+    height: 50px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: 600;
+}
+
+.calendar-week-day div {
+    display: grid;
+    place-items: center;
+    color: var(--txt-color);
+}
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    color: var(--txt-color);
+}
+
+.calendar-days div {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 150ms ease-in-out;
+}
+
+.calendar-days div:hover {
+    background-color: var(--func-hover);
+}
+
+.calendar-days div.curr-date,
+.calendar-days div.curr-date:hover {
+    background-color: var(--system-color);
+    color: white;
+    border-radius: 50%;
+}
+
+.calendar-days div.curr-date span {
+    display: none;
+}
+
+.month-picker {
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.month-picker:hover {
+    background-color: var(--func-hover);
+}
+
+.year-picker {
+    display: flex;
+    align-items: center;
+}
+
+.year-change {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.year-change:hover {
+    background-color: var(--func-hover);
+}
+
+
+.month-list {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--bg-color);
+    padding: 20px;
+    grid-template-columns: repeat(3, auto);
+    gap: 5px;
+    display: grid;
+    transform: scale(1.5);
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.month-list.show {
+    transform: scale(1);
+    visibility: visible;
+    pointer-events: visible;
+    transition: all 0.2s ease-in-out;
+}
+
+.month-list > div {
+    display: grid;
+    place-items: center;
+}
+
+.month-list > div > div {
+    width: 100%;
+    padding: 5px 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    color: var(--color-txt);
+}
+
+.month-list > div > div:hover {
+    background-color: var(--func-hover);
+}
+
+@keyframes to-top {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* ===== Eventos ===== */
+.insert {
+    position: fixed; /* Fixa o formulário na tela */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Fica por cima de todo o conteúdo */
+}
+
+.insert input,
+.insert textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.insert button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.insert button:hover {
+    background-color: #45a049;
+}
+
+
+
+/* Estilização da área que mostra os eventos */
+.events {
+    margin: 10px;
+    margin-left: auto;
+    border-radius: 10px;
+    border: 3px solid var(--bg-color);
+    padding: 10px;
+    background-color: var(--bg-color-events);
+    max-height: 450px;
+    max-width: 300px;
+    overflow-y: auto;
+}
+
+.name-and-close {
+    display: flex;
+    justify-content: space-between;
+}
+
+.close {
+    cursor: pointer;
+    align-self: flex-end;
+    margin: 0%;
+}
+
+.event-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; /* Alinha verticalmente ao centro */
+}
+
+.event-name {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.event-description, .event-date, .event-time {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.event-info {
+    text-align: left;
+    border-radius: 5px;
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: var(--bg-color-events-info);
+}
+
+/* Estilização da barra lateral */
+/* Seleciona a barra de rolagem */
+::-webkit-scrollbar {
+    width: 16px; /* Largura da barra de rolagem */
+  }
+  
+  /* Estiliza a trilha da barra de rolagem */
+  ::-webkit-scrollbar-track {
+    background: var(--bg-color); /* Cor de fundo da trilha */
+  }
+  
+  /* Estiliza o polegar da barra de rolagem */
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--system-color); /* Cor do polegar */
+    border-radius: 6px;
+    border-width: 3px 2px 3px 4px; /* Ordem: cima, direita, baixo, esquerda */
+    border-style: solid;
+    border-color: var(--bg-color);
+}
+  
+  /* Estiliza o polegar ao passar o mouse */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #2a605c;
+  }
+  
