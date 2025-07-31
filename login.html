@@ -67,16 +67,7 @@
 
     <script>
         document.getElementById('loginButton').addEventListener('click', function() {
-            const email = document.getElementById('loginEmail').value;
-            const senha = document.getElementById('loginSenha').value;
-
-            const userData = JSON.parse(localStorage.getItem('userData'));
-
-            if (userData && userData.email === email && userData.senha === senha) {
                 window.location.href = 'sistemas/visãogeral.html';
-            } else {
-                alert('Email ou senha incorretos.');
-            }
         });
     </script>
 </body>
